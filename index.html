@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Manipulating the DOM</title>
+    <!-- Load Google Fonts -->
+    <link href="https://fonts.googleapis.com/css?family=Fira+Sans:900|Merriweather&display=swap" rel="stylesheet"/>
+	<!-- Styles -->
+    <link href="css/styles.css" rel="stylesheet" />
+  </head>
+  <body>
+    <!-- HTML Follows BEM naming conventions 
+  IDs are only used for sections to connect menu anchors to sections -->
+    <header class="page__header">
+      <nav class="navbar__menu">
+        <!-- Navigation starts as empty UL that will be populated with JS -->
+        <ul id="navbar__list"></ul>
+      </nav>
+    </header>
+    <main>
+      <header class="main__hero">
+        <h1>Landing Page</h1>
+      </header>
+      <!-- Each Section has an ID (used for the anchor) and 
+    a data attribute that will populate the li node.
+    Adding more sections will automatically populate nav.
+    The first section is set to Active class by default -->
+			<!-- Section 1-->
+      <section id="section1" data-nav="Section 1" class="Active">
+	  
+        <div class="landing__container">
+          <h2>Section 1</h2>
+          <p>
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi
+            fermentum metus faucibus lectus pharetra dapibus. Suspendisse
+            potenti. Aenean aliquam elementum mi, ac euismod augue. Donec eget
+            lacinia ex. Phasellus imperdiet porta orci eget mollis. Sed
+            convallis sollicitudin mauris ac tincidunt. Donec bibendum, nulla
+            eget bibendum consectetur, sem nisi aliquam leo, ut pulvinar quam
+            nunc eu augue. Pellentesque maximus imperdiet elit a pharetra. Duis
+            lectus mi, aliquam in mi quis, aliquam porttitor lacus. Morbi a
+            tincidunt felis. Sed leo nunc, pharetra et elementum non, faucibus
+            vitae elit. Integer nec libero venenatis libero ultricies molestie
+            semper in tellus. Sed congue et odio sed euismod.
+          </p>
+
+          <p>
+            Aliquam a convallis justo. Vivamus venenatis, erat eget pulvinar
+            gravida, ipsum lacus aliquet velit, vel luctus diam ipsum a diam.
+            Cras eu tincidunt arcu, vitae rhoncus purus. Vestibulum fermentum
+            consectetur porttitor. Suspendisse imperdiet porttitor tortor, eget
+            elementum tortor mollis non.
+          </p>
+        </div>
+      </section>
+			<!-- Section 2-->
+	  <section id="section2" data-nav="Section 2">
+        <div class="landing__container">
+          <h2>Section 2</h2>
+          <p>
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi
+            fermentum metus faucibus lectus pharetra dapibus. Suspendisse
+            potenti. Aenean aliquam elementum mi, ac euismod augue. Donec eget
+            lacinia ex. Phasellus imperdiet porta orci eget mollis. Sed
+            convallis sollicitudin mauris ac tincidunt. Donec bibendum, nulla
+            eget bibendum consectetur, sem nisi aliquam leo, ut pulvinar quam
+            nunc eu augue. Pellentesque maximus imperdiet elit a pharetra. Duis
+            lectus mi, aliquam in mi quis, aliquam porttitor lacus. Morbi a
+            tincidunt felis. Sed leo nunc, pharetra et elementum non, faucibus
+            vitae elit. Integer nec libero venenatis libero ultricies molestie
+            semper in tellus. Sed congue et odio sed euismod.
+          </p>
+
+          <p>
+            Aliquam a convallis justo. Vivamus venenatis, erat eget pulvinar
+            gravida, ipsum lacus aliquet velit, vel luctus diam ipsum a diam.
+            Cras eu tincidunt arcu, vitae rhoncus purus. Vestibulum fermentum
+            consectetur porttitor. Suspendisse imperdiet porttitor tortor, eget
+            elementum tortor mollis non.
+          </p>
+        </div>
+      </section>
+			<!-- Section 3-->
+	  <section id="section3" data-nav="Section 3">
+        <div class="landing__container">
+          <h2>Section 3</h2>
+          <p>
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi
+            fermentum metus faucibus lectus pharetra dapibus. Suspendisse
+            potenti. Aenean aliquam elementum mi, ac euismod augue. Donec eget
+            lacinia ex. Phasellus imperdiet porta orci eget mollis. Sed
+            convallis sollicitudin mauris ac tincidunt. Donec bibendum, nulla
+            eget bibendum consectetur, sem nisi aliquam leo, ut pulvinar quam
+            nunc eu augue. Pellentesque maximus imperdiet elit a pharetra. Duis
+            lectus mi, aliquam in mi quis, aliquam porttitor lacus. Morbi a
+            tincidunt felis. Sed leo nunc, pharetra et elementum non, faucibus
+            vitae elit. Integer nec libero venenatis libero ultricies molestie
+            semper in tellus. Sed congue et odio sed euismod.
+          </p>
+
+          <p>
+            Aliquam a convallis justo. Vivamus venenatis, erat eget pulvinar
+            gravida, ipsum lacus aliquet velit, vel luctus diam ipsum a diam.
+            Cras eu tincidunt arcu, vitae rhoncus purus. Vestibulum fermentum
+            consectetur porttitor. Suspendisse imperdiet porttitor tortor, eget
+            elementum tortor mollis non.
+          </p>
+        </div>
+      </section>
+			<!-- Section 4-->
+      <section id="section4" data-nav="Section 4">
+        <div class="landing__container">
+          <h2>Section 4</h2>
+          <p>
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi
+            fermentum metus faucibus lectus pharetra dapibus. Suspendisse
+            potenti. Aenean aliquam elementum mi, ac euismod augue. Donec eget
+            lacinia ex. Phasellus imperdiet porta orci eget mollis. Sed
+            convallis sollicitudin mauris ac tincidunt. Donec bibendum, nulla
+            eget bibendum consectetur, sem nisi aliquam leo, ut pulvinar quam
+            nunc eu augue. Pellentesque maximus imperdiet elit a pharetra. Duis
+            lectus mi, aliquam in mi quis, aliquam porttitor lacus. Morbi a
+            tincidunt felis. Sed leo nunc, pharetra et elementum non, faucibus
+            vitae elit. Integer nec libero venenatis libero ultricies molestie
+            semper in tellus. Sed congue et odio sed euismod.
+          </p>
+
+          <p>
+            Aliquam a convallis justo. Vivamus venenatis, erat eget pulvinar
+            gravida, ipsum lacus aliquet velit, vel luctus diam ipsum a diam.
+            Cras eu tincidunt arcu, vitae rhoncus purus. Vestibulum fermentum
+            consectetur porttitor. Suspendisse imperdiet porttitor tortor, eget
+            elementum tortor mollis non.
+          </p>
+        </div>
+      </section>
+			<!-- Section 5-->
+      <section id="section5" data-nav="COVID-19">
+        <div class="landing__container">
+          <h2>COVID-19</h2>
+          <p>
+            Coronaviruses (CoV) are a large family of viruses that cause illness ranging from the common cold to more severe diseases such as Middle East Respiratory Syndrome (MERS-CoV) and Severe Acute Respiratory Syndrome (SARS-CoV). A novel coronavirus (nCoV) is a new strain that has not been previously identified in humans.
+
+			Coronaviruses are zoonotic, meaning they are transmitted between animals and people. Detailed investigations found that SARS-CoV was transmitted from civet cats to humans and MERS-CoV from dromedary camels to humans. Several known coronaviruses are circulating in animals that have not yet infected humans.
+
+			Common signs of infection include respiratory symptoms, fever, cough, shortness of breath and breathing difficulties. In more severe cases, infection can cause pneumonia, severe acute respiratory syndrome, kidney failure and even death.
+          </p>
+
+          <p>
+            Standard recommendations to prevent infection spread include regular hand washing, covering mouth and nose when coughing and sneezing, thoroughly cooking meat and eggs. Avoid close contact with anyone showing symptoms of respiratory illness such as coughing and sneezing.
+          </p>
+        </div>
+      </section>
+		<!-- Section 6-->
+      <section id="section6" data-nav="Coronavirus-WHO">
+        <div class="landing__container">
+          <h2>Coronavirus-WHO</h2>
+          <p>
+            Coronavirus disease (COVID-19) is an infectious disease caused by a newly discovered coronavirus.
+
+			Most people infected with the COVID-19 virus will experience mild to moderate respiratory illness and recover without requiring special treatment.  Older people, and those with underlying medical problems like cardiovascular disease, diabetes, chronic respiratory disease, and cancer are more likely to develop serious illness.
+
+			The best way to prevent and slow down transmission is to be well informed about the COVID-19 virus, the disease it causes and how it spreads. Protect yourself and others from infection by washing your hands or using an alcohol based rub frequently and not touching your face.
+          </p>
+
+          <p>
+            The COVID-19 virus spreads primarily through droplets of saliva or discharge from the nose when an infected person coughs or sneezes, so it’s important that you also practice respiratory etiquette (for example, by coughing into a flexed elbow).
+          </p>
+        </div>
+      </section>
+      <!-- Arrow To Top-->
+      <div class="arrow-top"></div>
+    </main>
+    <footer class="page__footer">
+    <p>&copy Udacity 2021</p>
+	</footer>
+
+    <!--Scripts-->
+    <script src="js/app.js"></script>
+  </body>
+</html>
