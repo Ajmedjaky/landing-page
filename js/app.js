@@ -18,12 +18,12 @@
  * Define Global Variables
  *
  */
- // Get navbar ul
-let navbarMenu = document.getElementById("navbar__list"); 
-//Get All sections
-let sections = document.querySelectorAll("section"); 
-// Get Arrow Top
-let arrowTop = document.querySelector(".arrow-top"); 
+ 
+const sections = document.querySelectorAll("section"); //Get All element with section tag
+const navbarMenu = document.getElementById("navbar__list"); // Get navigation bar so we can use it to move from one tab to another
+
+const arrowTop = document.querySelector(".arrow-top"); // Get Arrow Top
+
 /**
  * End Global Variables
  *
@@ -35,81 +35,85 @@ let arrowTop = document.querySelector(".arrow-top");
 
 function creatListItems() {
   for (item of sections) {
-	// Getting Data-nav of This Section
-    let sectionName = item.getAttribute("data-nav"); 
-	//Creating TextNode of this data_nav	
-    let textNode = document.createTextNode(sectionName); 
-	// vreating href 	
-    let attr = document.createAttribute("href"); 
-	// Creating anchor tag
-    let anchor = document.createElement("a"); 
-	// Craeting listItems
-    let listItems = document.createElement("li"); 
-    anchor.appendChild(textNode);
-	// Getting Section Id
-    let sectionId = item.getAttribute("id"); 
-    attr.value = `#${sectionId}`;
-	//Adding href to anchor
-    anchor.setAttributeNode(attr); 
-	// Addinng class menu__link to anchor
-    anchor.classList.add("menu__link"); 
-	// Adding anchor to li
-    listItems.appendChild(anchor); 
-	// Add anchor to li
-    navbarMenu.appendChild(listItems); 
-	// Getting attribute href Section
-    let anchorId = anchor.getAttribute("href"); 
-	
-	
-    //Smooht scroll
-    anchor.addEventListener("click", () => {
-      section.scrollIntoView({ behavior: "smooth" });
+	  
+	let listItems = document.createElement("li"); 	// Craeting listItems
+	let anchor = document.createElement("a"); 	// Creating anchor tag
+    let sectionName = item.getAttribute("data-nav"); 	// Getting Data-nav of This Section
 
-    });
+
+    let myTextNode = document.createTextNode(sectionName); 	//saving sectionName as a text so we can put it in the navbar	
+
+    let attr = document.createAttribute("href"); 	// Creating href 	
+
+
+	navbarMenu.appendChild(listItems); // putting listItems in navbarMenu
+	listItems.appendChild(anchor);// putting anchor in listItems
+    anchor.appendChild(myTextNode);// putting the text node in the anchor
+    let sectionId = item.getAttribute("id"); 	// Getting Section Id
+
+    attr.value = `#${sectionId}`; // setting the href value
+    anchor.setAttributeNode(attr); 	//Adding href to anchor
+
+    anchor.classList.add("menu__link"); 	// Addinng class menu__link to anchor
+
+    listItems.appendChild(anchor); 	// Adding anchor to li
+
+    navbarMenu.appendChild(listItems); 	// Add anchor to li
   }
 }
 
-// Adding Active class to current section and removing it from other Sections
-function ActivateSection() {
-  sections.forEach((item) => {
+// Highligt current section and remove highligh from other Sections
+function HighlightSection() {
+  for (item of sections) {
     const rect = item.getBoundingClientRect();
 
-    if (rect.top >= 0 && rect.top <= 300) {
-		sections.forEach((section) => {
-        if (section.classList.contains("Active")) {
-		//Removing class Active
-          section.classList.remove("Active"); 
-        }
-      });
-      item.classList.add("Active"); 
-      let links = document.querySelectorAll(".menu__link");
-      links.forEach((link) => {
-        if (item.getAttribute("data-nav") == link.textContent) 
+    if (rect.top >= 0 && rect.top <= 300) 
+	{
+		for (section of sections) 
 		{
-          link.classList.add("active"); // Add class Active to list item
+			if (section.classList.contains("Active")) 
+			{
+          section.classList.remove("Active");	//removing class active to list item - remove highlight
+			}
+		}
+      item.classList.add("Active"); //Add class active to list item - highlighting 
+	  ActivateAnchor(); //activat the anchor of current section
+    }
+  }
+}
+
+function  ActivateAnchor (){
+	let Anchors = document.querySelectorAll(".menu__link");
+      Anchors.forEach((a) => {
+        if (item.getAttribute("data-nav") == a.textContent) 
+		{
+          a.classList.add("active"); // activat the current section
         } 
 		else
 		{
-          link.classList.remove("active"); // Add class Active to list item
+          a.classList.remove("active"); // deactivate that section
         }
       });
-    }
-  });
 }
 
 //Smooht scroll
 function smoothScroll() {
-  document.querySelectorAll('a[href^="#"]').forEach((a) => {
-    a.addEventListener("click", function (e) {
-      e.preventDefault();
-      document.querySelector(this.getAttribute("href")).scrollIntoView({
+	let Hrefs =document.querySelectorAll('a[href^="#"]');
+	for(a of Hrefs)
+	{
+		a.addEventListener("click", function (e) 
+		{
+		e.preventDefault();
+		document.querySelector(this.getAttribute("href")).scrollIntoView({
         behavior: "smooth",
-      });
-    });
-  });
+		});
+		});
+	}
 }
 
-
+/*
+showing and hiding the pageHeader
+*/
 let hidePageHeader = function (callback) {
   let scrol; 
   if (!callback || typeof callback !== "function") {
@@ -119,7 +123,8 @@ let hidePageHeader = function (callback) {
     "scroll",
     () => {
       window.clearTimeout(scrol); // Clearing timeout
-      document.querySelector(".page__header").classList.remove("hide");
+	  let pageHeader =document.querySelector(".page__header"); 
+      pageHeader.classList.remove("hide"); // show the pageHeader 
       scrol = setTimeout(() => {
         callback();
       }, 5000); 
@@ -128,18 +133,16 @@ let hidePageHeader = function (callback) {
   );
 };
 
-//arrow top
+// showing the arrow top
 function checkWindowOffset() {
   //chek the offset Of thae window
   if (window.pageYOffset > 100) 
   {
-	//Adding class show
-    arrowTop.classList.add("show"); 
+    arrowTop.classList.add("show"); 	//Adding class show
   } 
   else 
   {
-	//Removing class show
-    arrowTop.classList.remove("show");
+    arrowTop.classList.remove("show"); 	//Removing class show
   }
 }
 
@@ -152,7 +155,7 @@ function checkWindowOffset() {
 
 creatListItems();
 
-document.addEventListener("scroll", ActivateSection);
+document.addEventListener("scroll", HighlightSection);
 smoothScroll();
 
 /**
